@@ -23,9 +23,7 @@
         }
     },
     "require-dev": {
-        // Add any development dependencies here, if needed
     },
     "scripts": {
-        // Define any custom scripts here, if needed
     }
 }

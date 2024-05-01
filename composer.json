@@ -1,0 +1,31 @@
+{
+    "name": "EventManagementSystem",
+    "description": "College Event Management System - Designing and Hosting College event management system. On this platform students can create profile, look through the event lists, register for the events and organizers can maintain the event registrations.",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Shravani",
+            "homepage": "https://github.com/shrav20"
+        },
+        {
+            "name": "Apoorv N V",
+            "homepage": "https://github.com/apoorvnv"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "ext-mysql": "*" 
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require-dev": {
+        // Add any development dependencies here, if needed
+    },
+    "scripts": {
+        // Define any custom scripts here, if needed
+    }
+}

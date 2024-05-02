@@ -14,8 +14,7 @@
         }
     ],
     "require": {
-        "php": "^7.4",
-        "ext-mysql": "*" 
+        "php": "^7.4" 
     },
     "autoload": {
         "psr-4": {

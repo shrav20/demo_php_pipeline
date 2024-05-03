@@ -19,13 +19,14 @@ jobs:
     - name: Install PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.3' # You can specify the PHP version you need
+        php-version: '8.3'
 
     - name: Install Composer dependencies
       run: composer install
 
     - name: Add vendor/bin to PATH
-      run: echo "::add-path::$(composer config bin-dir)"
+      run: |
+        echo "export PATH=\$PATH:$(composer config bin-dir)" >> $GITHUB_ENV
 
     - name: Run PHPUnit tests
       run: phpunit

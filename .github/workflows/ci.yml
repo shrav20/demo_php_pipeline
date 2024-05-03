@@ -25,7 +25,10 @@ jobs:
       run: composer install
 
     - name: Add vendor/bin to PATH
-      run: echo "export PATH=\$PATH:$(pwd)/vendor/bin" >> $GITHUB_ENV
+      run: echo "export PATH=$(pwd)/vendor/bin:\$PATH" >> $GITHUB_ENV
+
+    - name: Refresh environment
+      run: source $GITHUB_ENV
 
     - name: Run PHPUnit tests
       run: phpunit

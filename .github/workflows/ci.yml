@@ -24,5 +24,8 @@ jobs:
     - name: Install Composer dependencies
       run: composer install
 
+    - name: Add vendor/bin to PATH
+      run: echo "::add-path::$(composer config bin-dir)"
+
     - name: Run PHPUnit tests
       run: phpunit

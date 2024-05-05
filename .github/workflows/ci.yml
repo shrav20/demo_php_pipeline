@@ -27,6 +27,12 @@ jobs:
     - name: Add vendor/bin to PATH
       run: echo "export PATH=$(pwd)/vendor/bin:\$PATH" >> $GITHUB_ENV
 
+    - name: Debug - List vendor/bin contents
+      run: ls -l vendor/bin
+
+    - name: Debug - Print PATH
+      run: echo $PATH
+
     - name: Refresh environment
       run: source $GITHUB_ENV
 

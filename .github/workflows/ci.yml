@@ -24,8 +24,5 @@ jobs:
     - name: Install Composer dependencies
       run: composer install
 
-    - name: Install PHPUnit
-      run: composer require --dev phpunit/phpunit
-
     - name: Run PHPUnit tests
       run: composer test

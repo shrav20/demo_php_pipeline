@@ -203,7 +203,7 @@ class ComposerStaticInitb7c89c4065cc0ac8ab066fa5025c40b6
         'PHPUnit\\Framework\\MockObject\\Verifiable' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Verifiable.php',
         'PHPUnit\\Framework\\NoChildTestSuiteException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/NoChildTestSuiteException.php',
         'PHPUnit\\Framework\\OutputError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/OutputError.php',
-        'PHPUnit\\Framework\\PHPTAssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/PHPTAssertionFailedError.php',
+        'PHPUnit\\Framework\\PHPTAssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/PhptAssertionFailedError.php',
         'PHPUnit\\Framework\\Reorderable' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Reorderable.php',
         'PHPUnit\\Framework\\RiskyTestError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/RiskyTestError.php',
         'PHPUnit\\Framework\\SelfDescribing' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/SelfDescribing.php',

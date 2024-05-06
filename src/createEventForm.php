@@ -1,13 +1,16 @@
+<?php require_once 'src/utils/styles.php'; ?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>EVENT</title>
         <title></title>
-        <?php require 'utils/styles.php'; ?><!--css links. file found in utils folder-->
+        <?php require 'src/utils/styles.php'; ?><!--css links. file found in utils folder-->
         
     </head>
     <body>
+    <?php require 'utils/header.php'; ?> 
     <?php require 'utils/adminHeader.php'; ?>
   <form method="POST">
   

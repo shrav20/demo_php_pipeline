@@ -3,7 +3,7 @@
         'name' => 'event-management-system/event-management-system',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '24538c0eac785ddc577b5fca315cf33267513445',
+        'reference' => '814286beb436b8b7b5aba43b01b24b7aae5165a6',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'event-management-system/event-management-system' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '24538c0eac785ddc577b5fca315cf33267513445',
+            'reference' => '814286beb436b8b7b5aba43b01b24b7aae5165a6',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

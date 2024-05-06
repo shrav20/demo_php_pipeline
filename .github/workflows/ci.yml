@@ -24,11 +24,5 @@ jobs:
     - name: Install Composer dependencies
       run: composer install
 
-    - name: Add vendor/bin to PATH
-      run: echo "export PATH=$(pwd)/vendor/bin:\$PATH" >> $GITHUB_ENV
-
-    - name: Refresh environment
-      run: source $GITHUB_ENV
-
     - name: Run PHPUnit tests
-      run: phpunit
+      run: composer test

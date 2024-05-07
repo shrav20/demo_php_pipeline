@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>My_Wbsite</title>
-<?php require 'utils/styles.php'; ?><!--css links. file found in utils folder-->
+<?php require 'src/utils/styles.php'; ?><!--css links. file found in utils folder-->
 </head>
 <style>
 
@@ -22,7 +22,7 @@ hr.blueline {
 
 <body style="background-color:#b3e0ff ">
 
-  <?php require 'utils/header.php'; ?>
+  <?php require 'src/utils/header.php'; ?>
   <hr class="blueline">
   <div class="col-md-12">
   
@@ -38,6 +38,6 @@ hr.blueline {
 <hr class="blueline">
 </body>
 
- <?php require 'utils/footer.php'; ?>
+ <?php require 'src/utils/footer.php'; ?>
 
 </html>

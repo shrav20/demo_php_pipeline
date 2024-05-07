@@ -1,7 +1,7 @@
 <title>Event</title>
 <style>
 .bgImage {
-    background-image: url(images/giphy.gif);
+    background-image: url(public/images/giphy.gif);
     background-size: cover;
     background-position: center center;
     height: 650px;
@@ -19,7 +19,7 @@
         </div>
        
             <ul class="nav navbar-nav navbar-right"><!--navigation-->
-                    <li><a href = "index.php"><strong>Home</strong></a></li>
+                    <li><a href = "public/index.php"><strong>Home</strong></a></li>
                     <li><a href = "register.php"><strong>Register</strong></a></li>
                     <li><a href = "contact.php"><strong>Contact Us</strong></a></li>
                     <li><a href = "aboutus.php"><strong>About us</strong></a></li>

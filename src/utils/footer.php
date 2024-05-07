@@ -28,10 +28,10 @@
             <section>
                 <div class = "footcontent col-md-4"><!--right content-->
                     Follow Us:<br>
-                    <a href="https://www.facebook.com/people/Dbatu-live/100064052591252/"><img src = "images/facebook.png"></a>
-                    <a href="https://www.instagram.com/dbatu.ac.in/"><img src = "images/instagram.png" width="65px"></a>
+                    <a href="https://www.facebook.com/people/Dbatu-live/100064052591252/"><img src = "public/images/facebook.png"></a>
+                    <a href="https://www.instagram.com/dbatu.ac.in/"><img src = "public/images/instagram.png" width="65px"></a>
                         
-                        <a href=""><img src = "images/youtube.png"></a>
+                        <a href=""><img src = "public/images/youtube.png"></a>
                 </div>
             </section>
         </div>

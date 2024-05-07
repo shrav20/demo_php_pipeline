@@ -1,3 +1,7 @@
+<link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="public/css/style.css">
+
+
 <?php require_once 'src/utils/styles.php'; ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -6,12 +10,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>EVENT</title>
         <title></title>
-        <?php require 'src/utils/styles.php'; ?><!--css links. file found in utils folder-->
+        <!--css links. file found in utils folder-->
         
     </head>
     <body>
-    <?php require 'utils/header.php'; ?> 
-    <?php require 'utils/adminHeader.php'; ?>
+    <?php require 'src/utils/header.php'; ?> 
+    <?php require 'src/utils/adminHeader.php'; ?>
   <form method="POST">
   
   <div class="w3-container"> 
@@ -59,7 +63,7 @@
     
     </body>
 
-  <?php require 'utils/footer.php'; ?>
+  <?php require 'src/utils/footer.php'; ?>
 </html>
 
 <?php
@@ -80,7 +84,7 @@
     if(!empty($event_id) || !empty($event_title) || !empty($event_price) || !empty($participents) || !empty($img_link) || !empty($type_id) )
 
     {
-      include 'classes/db1.php';
+      include 'public/classes/db1.php';
         
         
    

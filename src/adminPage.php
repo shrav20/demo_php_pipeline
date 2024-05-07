@@ -1,5 +1,5 @@
 <?php
-include_once 'classes/db1.php';
+include_once 'public/classes/db1.php';
 $result = mysqli_query($conn,"SELECT * FROM staff_coordinator s ,event_info ef ,student_coordinator st,events e where e.event_id= ef.event_id and e.event_id= s.event_id and e.event_id= st.event_id");
 ?>
 
@@ -13,7 +13,7 @@ $result = mysqli_query($conn,"SELECT * FROM staff_coordinator s ,event_info ef ,
 </head>
     
     <body>
-<?php include 'utils/adminHeader.php'?>
+<?php include 'src/utils/adminHeader.php'?>
  
     
         <div class = "content">
@@ -76,6 +76,6 @@ if (mysqli_num_rows($result) > 0) {
             </div>
         </div>
         
-        <?php require 'utils/footer.php'; ?>
+        <?php require 'src/utils/footer.php'; ?>
     </body>
 </html>

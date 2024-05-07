@@ -35,7 +35,11 @@ jobs:
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
 
+      - name: Create Netlify Site
+        run: netlify sites:create --name "Your Site Name" --account-slug "Your Netlify Account Slug"
+        id: create_site
+
       - name: Deploy to Netlify
-        run: netlify deploy --prod --dir src public --new
+        run: netlify deploy --prod --dir src public --site ${{ steps.create_site.outputs.site_id }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

@@ -1,5 +1,5 @@
 <?php
-include_once 'classes/db1.php';
+include_once 'public/classes/db1.php';
 $result = mysqli_query($conn,"SELECT * FROM events,registered r ,participent p WHERE events.event_id=r.event_id and r.usn = p.usn order by event_title");
 ?>
 <!DOCTYPE html>
@@ -8,11 +8,11 @@ $result = mysqli_query($conn,"SELECT * FROM events,registered r ,participent p W
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>EVENT</title>
-        <?php require 'utils/styles.php'; ?><!--css links. file found in utils folder-->
+        <?php require 'src/utils/styles.php'; ?><!--css links. file found in utils folder-->
         
     </head>
 
-<body><?php include 'utils/adminHeader.php'?>
+<body><?php include 'src/utils/adminHeader.php'?>
 <div class = "content">
 <div class = "container">
 <h1>Student details</h1>
@@ -59,6 +59,6 @@ else{
 ?>
 </div>
 </div>
-<?php include 'utils/footer.php'?>;
+<?php include 'src/utils/footer.php'?>;
  </body>
 </html>

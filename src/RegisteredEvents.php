@@ -1,11 +1,11 @@
 <?php
-require_once 'utils/header.php';
-require_once 'utils/styles.php';
+require_once 'src/utils/header.php';
+require_once 'src/utils/styles.php';
 
 $usn=$_POST['usn'];
 
 
-include_once 'classes/db1.php';
+include_once 'public/classes/db1.php';
 
 $result = mysqli_query($conn, "SELECT * FROM registered r,staff_coordinator s ,event_info ef ,student_coordinator st,events e where e.event_id= ef.event_id and e.event_id= s.event_id and e.event_id= st.event_id and r.usn= '$usn' and r.event_id=e.event_id");
 ?>
@@ -120,4 +120,4 @@ if (mysqli_num_rows($result) > 0) {
                
             </div>
         </div>
-        <?php include 'utils/footer.php'; ?> 
+        <?php include 'src/utils/footer.php'; ?> 

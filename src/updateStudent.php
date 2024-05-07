@@ -1,5 +1,5 @@
 
-    <?php include 'classes/db1.php';
+    <?php include 'public/classes/db1.php';
     $id=$_GET['id'];
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -8,11 +8,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sanchanala 2k20</title>
         <title></title>
-        <?php require 'utils/styles.php'; ?><!--css links. file found in utils folder-->
+        <?php require 'src/utils/styles.php'; ?><!--css links. file found in utils folder-->
         
     </head>
     <body>
-    <?php require 'utils/header.php'; ?>
+    <?php require 'src/utils/header.php'; ?>
     <div class ="content"><!--body content holder-->
             <div class = "container">
                 <div class ="col-md-6 col-md-offset-3">
@@ -28,7 +28,7 @@
     </form>
     
 
-    <?php require 'utils/footer.php'; ?>
+    <?php require 'src/utils/footer.php'; ?>
     </body>
 </html>
 

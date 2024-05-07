@@ -1,5 +1,5 @@
 <?php
-include_once 'classes/db1.php';
+include_once 'public/classes/db1.php';
 $result = mysqli_query($conn,"SELECT * FROM student_coordinator s ,events e where e.event_id= s.event_id");
 ?>
 <!DOCTYPE html>
@@ -9,11 +9,11 @@ $result = mysqli_query($conn,"SELECT * FROM student_coordinator s ,events e wher
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sanchanala 2k20</title>
         <title></title>
-        <?php require 'utils/styles.php'; ?><!--css links. file found in utils folder-->
+        <?php require 'src/utils/styles.php'; ?><!--css links. file found in utils folder-->
         
     </head>
 
-<body><?php include 'utils/adminHeader.php'?>
+<body><?php include 'src/utils/adminHeader.php'?>
 <div class = "content">
 <div class = "container">
 <h1>Student Co-ordinator details</h1>
@@ -53,5 +53,5 @@ else{
 </div>
 </div>
  </body>
- <?php include 'utils/footer.php';?>
+ <?php include 'src/utils/footer.php';?>
 </html>

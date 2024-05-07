@@ -1,4 +1,4 @@
-<?php require 'classes/db1.php';
+<?php require 'public/classes/db1.php';
 $id=$_GET['id'];
 
 $sql="delete from events where event_id='$id';";

@@ -5,7 +5,7 @@ require_once 'vendor/autoload.php'; // Example for autoloaders
 // Include the file you want to test
 require_once 'src/createEventForm.php';
 
-require_once 'C:\Users\DELL\OneDrive\Documents\demo_php_pipeline\src\utils\styles.php';
+require_once 'src/utils/styles.php';
 
 
 // Include PHPUnit framework

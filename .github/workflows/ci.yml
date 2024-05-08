@@ -38,7 +38,7 @@ jobs:
       - name: Check if Site Exists
         id: check_site
         run: |
-          if netlify sites:list | grep -q "CS event management system"; then
+          if netlify sites:list --json | jq -e '.[].name | contains("CS event management system")' > /dev/null; then
             echo "Site exists"
           else
             echo "Site does not exist"

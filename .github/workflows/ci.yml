@@ -36,7 +36,7 @@ jobs:
         run: npm install -g netlify-cli
 
       - name: Create Netlify Site
-        run: netlify sites:create --name "Your Site Name" --account-slug "Your Netlify Account Slug"
+        run: netlify sites:create --name "CS event management system" --account-slug shrav20
         id: create_site
 
       - name: Deploy to Netlify

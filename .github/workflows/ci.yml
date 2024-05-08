@@ -40,6 +40,6 @@ jobs:
         id: create_site
 
       - name: Deploy to Netlify
-        run: netlify deploy --prod --dir src public --site ${{ steps.create_site.outputs.site_id }}
+        run: netlify deploy --prod --dir src public --site "CS event management system"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

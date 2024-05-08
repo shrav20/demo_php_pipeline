@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
@@ -26,3 +26,31 @@ jobs:
 
     - name: Run PHPUnit tests
       run: composer test
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+
+      - name: Check if Site Exists
+        id: check_site
+        run: |
+          if netlify sites:list --json | jq -e '.[].site_id | contains("e350bb1f-2dd8-439b-bfbd-04fe374360f9")' > /dev/null; then
+            echo "Site exists"
+          else
+            echo "Site does not exist"
+          fi
+
+      - name: Deploy to Netlify
+        run: |
+          cd $GITHUB_WORKSPACE 
+          if netlify sites:list --json | jq -e '.[].site_id | contains("e350bb1f-2dd8-439b-bfbd-04fe374360f9")' > /dev/null; then
+            netlify deploy --prod --dir public --site "e350bb1f-2dd8-439b-bfbd-04fe374360f9"
+          else
+            netlify deploy --prod --dir public --site "e350bb1f-2dd8-439b-bfbd-04fe374360f9" --open --message "Deploying to new site" --auth "${NETLIFY_AUTH_TOKEN}"
+          fi
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

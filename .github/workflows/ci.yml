@@ -35,13 +35,16 @@ jobs:
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
 
-      - name: Create Netlify Site
+      - name: Check if Site Exists
+        id: check_site
         run: |
-          netlify sites:create --name "CS event management system" --account-slug shrav20 --manual
-          echo "::set-output name=site_id::$(netlify sites:list --json | jq -r '.[] | select(.name == "CS event management system") | .site_id')"
-        id: create_site
+          if netlify sites:list | grep -q "CS event management system"; then
+            echo "Site exists"
+          else
+            echo "Site does not exist"
+          fi
 
       - name: Deploy to Netlify
-        run: netlify deploy --prod --dir src public --site "CS event management system"
+        run: netlify deploy --prod --dir src public --name "CS event management system"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

@@ -47,9 +47,9 @@ jobs:
       - name: Deploy to Netlify
         run: |
           if netlify sites:list --json | jq -e '.[].site_id | contains("e350bb1f-2dd8-439b-bfbd-04fe374360f9")' > /dev/null; then
-            netlify deploy --prod --dir src public --site "e350bb1f-2dd8-439b-bfbd-04fe374360f9"
+            netlify deploy --prod --dir public --site "e350bb1f-2dd8-439b-bfbd-04fe374360f9"
           else
-            netlify deploy --prod --dir src public --site "e350bb1f-2dd8-439b-bfbd-04fe374360f9" --open --message "Deploying to new site" --auth "${NETLIFY_AUTH_TOKEN}"
+            netlify deploy --prod --dir public --site "e350bb1f-2dd8-439b-bfbd-04fe374360f9" --open --message "Deploying to new site" --auth "${NETLIFY_AUTH_TOKEN}"
           fi
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

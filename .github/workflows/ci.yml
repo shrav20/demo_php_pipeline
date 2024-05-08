@@ -45,6 +45,11 @@ jobs:
           fi
 
       - name: Deploy to Netlify
-        run: netlify deploy --prod --dir src public --name "CS event management system"
+        run: |
+          if netlify sites:list --json | jq -e '.[].name | contains("CS event management system")' > /dev/null; then
+            netlify deploy --prod --dir src public --site "CS event management system"
+          else
+            netlify deploy --prod --dir src public --name "CS event management system" --account-slug shrav20
+          fi
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

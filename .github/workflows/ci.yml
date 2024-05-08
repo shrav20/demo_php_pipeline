@@ -46,6 +46,7 @@ jobs:
 
       - name: Deploy to Netlify
         run: |
+          cd $GITHUB_WORKSPACE 
           if netlify sites:list --json | jq -e '.[].site_id | contains("e350bb1f-2dd8-439b-bfbd-04fe374360f9")' > /dev/null; then
             netlify deploy --prod --dir public --site "e350bb1f-2dd8-439b-bfbd-04fe374360f9"
           else

@@ -40,8 +40,8 @@ jobs:
 
       - name: Deploy to 000webhost
         env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_SERVER: files.000webhost.com
+          FTP_USERNAME: paronymous-rowers
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
           lftp -c "

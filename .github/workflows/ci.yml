@@ -13,44 +13,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Install PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.3'
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
 
-    - name: Install Composer dependencies
-      run: composer install
+      - name: Install Composer dependencies
+        run: composer install
 
-    - name: Run PHPUnit tests
-      run: composer test
+      - name: Run PHPUnit tests
+        run: composer test
 
   deploy:
     needs: test
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install Netlify CLI
-        run: npm install -g netlify-cli
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Check if Site Exists
-        id: check_site
-        run: |
-          if netlify sites:list --json | jq -e '.[].site_id | contains("e350bb1f-2dd8-439b-bfbd-04fe374360f9")' > /dev/null; then
-            echo "Site exists"
-          else
-            echo "Site does not exist"
-          fi
+      - name: Install FTP deployment tool
+        run: sudo apt-get install lftp
 
-      - name: Deploy to Netlify
+      - name: Deploy to 000webhost
         run: |
-          cd $GITHUB_WORKSPACE 
-          if netlify sites:list --json | jq -e '.[].site_id | contains("e350bb1f-2dd8-439b-bfbd-04fe374360f9")' > /dev/null; then
-            netlify deploy --prod --dir public --site "e350bb1f-2dd8-439b-bfbd-04fe374360f9"
-          else
-            netlify deploy --prod --dir public --site "e350bb1f-2dd8-439b-bfbd-04fe374360f9" --open --message "Deploying to new site" --auth "${NETLIFY_AUTH_TOKEN}"
-          fi
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          lftp -e "
+          set ftp:ssl-allow no;
+          open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
+          mirror --reverse --delete --verbose ./ /public_html;
+          bye;
+          "

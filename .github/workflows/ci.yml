@@ -40,7 +40,7 @@ jobs:
 
       - name: Connect to FTP Server and Upload .htaccess
         run: |
-          echo "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}" > ftpcmd
+          echo "open -u files.000webhost.com,paronymous-rowers ${{ secrets.FTP_SERVER }}" > ftpcmd
           echo "put .htaccess" >> ftpcmd
           lftp -f ftpcmd
 

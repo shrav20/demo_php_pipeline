@@ -41,8 +41,7 @@ jobs:
       - name: Connect to FTP Server and Upload .htaccess
         run: |
           echo "Connecting to FTP Server and uploading .htaccess"
-          echo "open $FTP_SERVER" > ftpcmd
-          echo "user $FTP_USERNAME $FTP_PASSWORD" >> ftpcmd
+          echo "open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER" > ftpcmd
           echo "put .htaccess" >> ftpcmd
           lftp -f ftpcmd
 

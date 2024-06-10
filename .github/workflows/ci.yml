@@ -38,10 +38,13 @@ jobs:
       - name: Install FTP deployment tool
         run: sudo apt-get install -y lftp
 
-      - name: Copy .htaccess file to 000webhost
+      - name: Connect to FTP Server and Upload .htaccess
         run: |
-          echo "Copying .htaccess file to 000webhost server"
-          echo "put .htaccess" | lftp -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER
+          echo "Connecting to FTP Server and uploading .htaccess"
+          echo "open $FTP_SERVER" > ftpcmd
+          echo "user $FTP_USERNAME $FTP_PASSWORD" >> ftpcmd
+          echo "put .htaccess" >> ftpcmd
+          lftp -f ftpcmd
 
       - name: Deploy to 000webhost
         env:
@@ -52,6 +55,6 @@ jobs:
           lftp -c "
           set ftp:ssl-allow no;
           open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER;
-          mirror --reverse --delete --verbose --include='public' --exclude='.*' --exclude='vendor/' ./ /public_html;
+          mirror --reverse --delete --verbose ./ /public_html;
           bye;
           "

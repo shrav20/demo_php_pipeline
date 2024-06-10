@@ -45,7 +45,7 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
           find . -type d -name vendor -prune -exec rm -rf {} +
-          echo "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}" > ftpcmd
+          echo "open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER" > ftpcmd
           echo "put .htaccess" >> ftpcmd
           find . -type f -not -path './vendor/*' >> ftpcmd
           lftp -e "source ftpcmd; quit"

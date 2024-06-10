@@ -46,6 +46,6 @@ jobs:
         run: |
           find . -type d -name vendor -prune -exec rm -rf {} +
           echo "open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER" > ftpcmd
-          echo "put .htaccess" >> ftpcmd
-          find . -type f -not -path './vendor/*' >> ftpcmd
+          echo "put -O /public_html .htaccess" >> ftpcmd
+          find . -type f -not -path './vendor/*' -not -path './.git/*' -exec echo put -O /public_html {} \; >> ftpcmd
           lftp -e "source ftpcmd; quit"

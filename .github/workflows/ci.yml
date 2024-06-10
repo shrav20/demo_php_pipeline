@@ -47,6 +47,6 @@ jobs:
           lftp -c "
           set ftp:ssl-allow no;
           open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER;
-          mirror --reverse --delete --verbose ./ /public_html;
+          mirror --reverse --delete --verbose --include='public' --exclude='.*' --exclude='vendor/' ./ /public_html;
           bye;
           "

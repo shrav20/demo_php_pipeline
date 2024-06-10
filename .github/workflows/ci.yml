@@ -38,12 +38,6 @@ jobs:
       - name: Install FTP deployment tool
         run: sudo apt-get install -y lftp
 
-      - name: Connect to FTP Server and Upload .htaccess
-        run: |
-          echo "open -u files.000webhost.com,paronymous-rowers ${{ secrets.FTP_SERVER }}" > ftpcmd
-          echo "put .htaccess" >> ftpcmd
-          lftp -f ftpcmd
-
       - name: Deploy to 000webhost
         env:
           FTP_SERVER: files.000webhost.com

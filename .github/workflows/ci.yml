@@ -38,6 +38,11 @@ jobs:
       - name: Install FTP deployment tool
         run: sudo apt-get install -y lftp
 
+      - name: Copy .htaccess file to 000webhost
+        run: |
+          echo "Copying .htaccess file to 000webhost server"
+          echo "put .htaccess" | lftp -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER
+
       - name: Deploy to 000webhost
         env:
           FTP_SERVER: files.000webhost.com

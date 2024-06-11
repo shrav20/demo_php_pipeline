@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  test:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,11 +24,30 @@ jobs:
       - name: Install Composer dependencies
         run: composer install
 
-      - name: Run PHPUnit tests
-        run: composer test
+  integration-test:
+    needs: ci
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Install Composer dependencies
+        run: composer install
+
+      - name: Set execute permission for PHPUnit
+        run: chmod +x ./vendor/bin/phpunit
+
+      - name: Run integration tests
+        run: ./vendor/bin/phpunit
 
   deploy:
-    needs: test
+    needs: integration-test
     runs-on: ubuntu-latest
 
     steps:

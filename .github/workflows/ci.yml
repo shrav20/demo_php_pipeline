@@ -13,44 +13,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Install PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.3'
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
 
-    - name: Install Composer dependencies
-      run: composer install
+      - name: Install Composer dependencies
+        run: composer install
 
-    - name: Run PHPUnit tests
-      run: composer test
+      - name: Run PHPUnit tests
+        run: composer test
 
   deploy:
     needs: test
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install Netlify CLI
-        run: npm install -g netlify-cli
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Check if Site Exists
-        id: check_site
-        run: |
-          if netlify sites:list --json | jq -e '.[].site_id | contains("e350bb1f-2dd8-439b-bfbd-04fe374360f9")' > /dev/null; then
-            echo "Site exists"
-          else
-            echo "Site does not exist"
-          fi
+      - name: Install FTP deployment tool
+        run: sudo apt-get install -y lftp
 
-      - name: Deploy to Netlify
-        run: |
-          cd $GITHUB_WORKSPACE 
-          if netlify sites:list --json | jq -e '.[].site_id | contains("e350bb1f-2dd8-439b-bfbd-04fe374360f9")' > /dev/null; then
-            netlify deploy --prod --dir public --site "e350bb1f-2dd8-439b-bfbd-04fe374360f9"
-          else
-            netlify deploy --prod --dir public --site "e350bb1f-2dd8-439b-bfbd-04fe374360f9" --open --message "Deploying to new site" --auth "${NETLIFY_AUTH_TOKEN}"
-          fi
+      - name: Deploy to 000webhost
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          FTP_SERVER: files.000webhost.com
+          FTP_USERNAME: paronymous-rowers
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          find . -type d -name vendor -prune -exec rm -rf {} +
+          echo "open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER" > ftpcmd
+          echo "put -O /public_html .htaccess" >> ftpcmd
+          find . -type f -not -path './vendor/*' -not -path './.git/*' -exec echo put -O /public_html {} \; >> ftpcmd
+          lftp -e "source ftpcmd; quit"

@@ -25,4 +25,7 @@ jobs:
         run: chmod +x ./vendor/bin/phpunit
 
       - name: Run DeleteEventTest
+        env:
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: ./vendor/bin/phpunit --filter DeleteEventTest

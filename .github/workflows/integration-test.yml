@@ -26,6 +26,8 @@ jobs:
 
       - name: Run DeleteEventTest
         env:
+          DB_SERVER: "localhost"
           DB_USERNAME: ${{ secrets.DB_USERNAME }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_DATABASE: "id22085966_demodb"
         run: ./vendor/bin/phpunit --filter DeleteEventTest

@@ -21,5 +21,8 @@ jobs:
       - name: Install Composer dependencies
         run: composer install
 
+      - name: Set execute permission for PHPUnit
+        run: chmod +x ./vendor/bin/phpunit
+
       - name: Run DeleteEventTest
         run: ./vendor/bin/phpunit --filter DeleteEventTest

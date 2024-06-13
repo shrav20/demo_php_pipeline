@@ -82,7 +82,10 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
           find . -type d -name vendor -prune -exec rm -rf {} +
+
+          echo "<?php return ['DB_USERNAME' => '$DB_USERNAME', 'DB_PASSWORD' => '$DB_PASSWORD'];" > config.php
           echo "open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER" > ftpcmd
           echo "put -O /public_html .htaccess" >> ftpcmd
+          echo "put -O /public_html config.php" >> ftpcmd
           find . -type f -not -path './vendor/*' -not -path './.git/*' -exec echo put -O /public_html {} \; >> ftpcmd
           lftp -e "source ftpcmd; quit"

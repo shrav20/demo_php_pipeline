@@ -36,7 +36,7 @@
 
                             <h1 style="color:#003300 ; font-size:38px ;"><u><strong>Technical Events</strong></u></h1><!--title-->
                             <p><!--content-->
-                                EMBRACE YOUR TECHNICAL SKILLS BY PARTICIPATING IN OUR DIFFERENT TECHNICAL EVENTS!
+                                EMBRACE YOUR TECHNICAL SKILLS BY PARTICIPATING IN OUR DIFFERENT TECHNICAL EVENTS With Us here !
                             </p>
 
                             <br><br>

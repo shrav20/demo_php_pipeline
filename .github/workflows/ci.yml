@@ -80,6 +80,8 @@ jobs:
           FTP_SERVER: files.000webhost.com
           FTP_USERNAME: paronymous-rowers
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: |
           find . -type d -name vendor -prune -exec rm -rf {} +
 

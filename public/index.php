@@ -15,7 +15,7 @@
     <div class="content"><!--body content holder-->
         <div class="container">
             <div class="col-md-12"><!--body content title holder with 12 grid columns-->
-                <h1 style="color:#000080 ; font-size:42px ; font-style:bold "><strong> Register your Favourite events:</strong></h1><!--body content title-->
+                <h1 style="color:#000080 ; font-size:42px ; font-style:bold "><strong> Register your Favourite events with us:</strong></h1><!--body content title-->
 
             </div>
 
